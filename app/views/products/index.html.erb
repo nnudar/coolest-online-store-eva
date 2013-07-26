@@ -7,6 +7,7 @@
       <th>Title and Description</th>
       <th>Price</th>
       <th>Stock</th>
+      <th>Buy</th>
     </tr>
   </thead>
 
@@ -18,11 +19,14 @@
         <td><%= print_price(product.price)%></td>
         <td><%= print_stock(product.stock) %>
         </td>
+        <td><%= button_to "Add to Cart", order_items_path(product_id: product.id) %></td>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <p><%= link_to "Create a New Product", new_product_path, id: "new_product" %></p>
 
+<p>
+  Item Count: <%= @order.order_items.count %>
+</p>
