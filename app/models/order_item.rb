@@ -2,9 +2,9 @@ class OrderItem < ActiveRecord::Base
     belongs_to :order
     belongs_to :product
 
-    validates_numericality_of :order_id, :product_id 
+    validates_presence_of :order_id, :product_id 
     
     def subtotal
-
+        quantity * product.price
     end
 end
